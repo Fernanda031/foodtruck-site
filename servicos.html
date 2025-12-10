@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Serviços | El Fuego Loco - Eventos e Catering</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Fonte Google: Roboto (Clean e Profissional) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- estilos embutidos - iguais outras páginas -->
+    <style>
+        /* Variáveis de Cor */
+        :root {
+            --cor-principal: #E34A3E; 
+            --cor-secundaria: #F5A623; 
+            --fundo-escuro: #1C1C1C;
+            --fundo-claro: #F8F8F8; 
+            --texto-escuro: #333333;
+            --texto-claro: #FFFFFF;
+        }
+
+        body {
+            background-color: var(--fundo-claro);
+            color: var(--texto-escuro);
+            font-family: 'Roboto', sans-serif;
+            padding-top: 70px; 
+            min-height: 100vh;
+        }
+
+        /* NAVBAR */
+        .navbar-custom {
+            background-color: var(--fundo-escuro) !important;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+        }
+
+        .logo-svg {
+            width: 30px;
+            height: 30px;
+            margin-right: 8px;
+            filter: drop-shadow(0 0 5px rgba(227, 74, 62, 0.5));
+            transform: rotate(-15deg); 
+        }
+
+        .navbar-brand-text {
+            color: var(--cor-principal) !important;
+            font-size: 1.5rem;
+            font-weight: 900;
+            letter-spacing: 1px;
+        }
+
+        .navbar-custom .nav-link {
+            color: var(--texto-claro) !important;
+            font-weight: 500;
+            transition: color 0.2s, background-color 0.2s;
+            border-radius: 5px;
+            padding: 8px 12px;
+        }
+
+        .navbar-custom .nav-link:hover, .navbar-custom .nav-link.active {
+            color: var(--cor-secundaria) !important;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Rodapé */
+        .footer-custom {
+            background-color: var(--fundo-escuro);
+            color: var(--texto-claro);
+        }
+
+        .footer-custom h5 {
+            color: var(--cor-secundaria);
+            font-weight: 700;
+        }
+
+        .footer-custom a {
+            color: var(--texto-claro);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-custom a:hover {
+            color: var(--cor-principal);
+        }
+
+        .footer-slogan, .footer-copy {
+            color: var(--cor-secundaria) !important;
+            font-weight: 500;
+        }
+
+        /* Estilos específicos da página */
+        
+        .section-title {
+            color: var(--cor-principal);
+            font-weight: 900;
+            text-transform: uppercase;
+        }
+        
+        .hero-servicos {
+            background: linear-gradient(rgba(28, 28, 28, 0.8), rgba(28, 28, 28, 0.8)), url('https://placehold.co/1200x400/1C1C1C/F5A623?text=El+Fuego+Loco+Eventos');
+            background-size: cover;
+            background-position: center;
+            color: var(--texto-claro);
+            padding: 80px 0;
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+        }
+
+        /* Seção de Planos (Listas) */
+        .plan-card {
+            background-color: var(--texto-claro);
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .plan-header {
+            background-color: var(--cor-principal);
+            color: var(--texto-claro);
+            padding: 1.5rem 1rem;
+            font-weight: 900;
+            font-size: 1.5rem;
+            text-align: center;
+        }
+
+        .plan-content {
+            padding: 1rem 1.5rem;
+            flex-grow: 1;
+        }
+
+        .plan-list {
+            padding-left: 0;
+            list-style: none;
+            margin-bottom: 1rem;
+        }
+        
+        .plan-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+            text-align: left;
+            font-size: 0.95rem;
+        }
+
+        .plan-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .check-icon {
+            color: #38761D; 
+            margin-right: 10px;
+        }
+        
+        .plan-price-footer {
+            background-color: var(--fundo-claro);
+            padding: 1rem 1.5rem;
+            text-align: center;
+            border-top: 2px solid var(--cor-secundaria);
+        }
+
+        
+        /* Estilos customizados para o Accordion */
+        .accordion-item {
+            border: 1px solid #dee2e6;
+            margin-bottom: 15px; 
+            border-radius: 8px !important;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .accordion-button {
+            background-color: var(--texto-claro);
+            color: var(--texto-escuro);
+            font-weight: 700;
+            padding: 1.5rem;
+        }
+        
+        .accordion-button:not(.collapsed) {
+            background-color: var(--cor-principal);
+            color: var(--texto-claro);
+            box-shadow: none;
+        }
+        
+        .accordion-button:not(.collapsed) .service-icon-acc {
+            color: var(--cor-secundaria);
+        }
+
+        .accordion-body {
+            border-top: 1px solid #f0f0f0;
+            padding: 1.5rem;
+        }
+        
+        .accordion-body i {
+            color: var(--cor-principal);
+            margin-right: 10px;
+        }
+        
+        .service-icon-acc {
+            font-size: 1.5rem;
+            color: var(--cor-principal); 
+            margin-right: 15px;
+            transition: color 0.3s;
+        }
+
+        /* Estilos do Carrossel de Depoimentos */
+        .testimonial-carousel {
+            background-color: var(--fundo-escuro);
+            padding: 5rem 0;
+        }
+        .testimonial-item {
+            padding: 3rem 1rem;
+            text-align: center;
+            color: var(--texto-claro);
+        }
+        .testimonial-quote {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--texto-claro);
+            margin-bottom: 1.5rem;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+        .testimonial-author {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cor-secundaria);
+            text-transform: uppercase;
+        }
+        .testimonial-author span {
+            display: block;
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: #aaa;
+        }
+        .carousel-control-prev-icon, .carousel-control-next-icon {
+            filter: invert(1);
+        }
+
+    </style>
+    
+</head>
+<body>
+
+    <!-- CABEÇALHO (NAVBAR REAPROVEITADA) -->
+    <header>
+        <nav class="navbar navbar-expand-lg fixed-top navbar-dark navbar-custom"> 
+            <div class="container">
+                <a class="navbar-brand text-uppercase d-flex align-items-center" href="index.html">
+                    <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M50 95 C 60 85, 80 70, 80 40 C 80 15, 60 5, 50 5 C 40 5, 20 15, 20 40 C 20 70, 40 85, 50 95 Z" fill="#E34A3E"/>
+                        <path d="M50 5 L 55 0 L 45 0 Z" fill="#38761D"/>
+                        <rect x="45" y="0" width="10" height="15" fill="#38761D"/>
+                        <path d="M50 20 C 60 30, 70 50, 50 75 C 30 50, 40 30, 50 20 Z" fill="#F5A623" opacity="0.6"/>
+                    </svg>
+                    <span class="navbar-brand-text">EL FUEGO LOCO</span>
+                </a>
+                
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto align-items-center"> 
+                        <li class="nav-item"><a class="nav-link" href="index.html">INÍCIO</a></li>
+                        <li class="nav-item"><a class="nav-link" href="equipe.html">SOBRE NÓS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="cardapio.html">CARDÁPIO</a></li>
+                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="servicos.html">SERVIÇOS</a></li>
+                        <li class="nav-item"><a class="nav-link" href="contato.html">CONTATO</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- Seção hero -->
+        <section class="hero-servicos text-center">
+            <div class="container">
+                <h1 class="display-2 fw-bold mb-3 section-title text-light">LEVE O FOGO PARA SEU EVENTO</h1>
+                <p class="lead text-light">O El Fuego Loco oferece o serviço de Food Truck completo para festas, confraternizações e eventos corporativos. Autenticidade e sabor garantidos!</p>
+                <a href="contato.html" class="btn btn-lg rounded-pill mt-4" style="background-color: var(--cor-secundaria); color: var(--fundo-escuro); font-weight: 700;">
+                    <i class="fas fa-calendar-alt me-2"></i> Solicite um Orçamento
+                </a>
+            </div>
+        </section>
+
+        <!-- Seção 1: Tipos de Serviço (ACORDION) -->
+        <section class="py-5 bg-light">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="h1 fw-bold section-title">NOSSAS OPÇÕES DE ATENDIMENTO</h2>
+                    <p class="text-muted">Clique nos serviços abaixo para ver os detalhes e exigências de cada formato.</p>
+                </div>
+
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <div class="accordion" id="serviceAccordion">
+                            
+                            <!-- Item 1: Food Truck Completo -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTruck" aria-expanded="true" aria-controls="collapseTruck">
+                                        <i class="service-icon-acc fas fa-truck"></i> Food Truck Completo
+                                    </button>
+                                </h2>
+                                <div id="collapseTruck" class="accordion-collapse collapse show" data-bs-parent="#serviceAccordion">
+                                    <div class="accordion-body">
+                                        <p>Contrate nosso Food Truck completo! Levamos toda a estrutura móvel, incluindo cozinha, iluminação e gerador (se necessário). Uma experiência visual e gastronômica completa para o seu evento.</p>
+                                        <p class="fw-bold"><i class="fas fa-users"></i> Requisito: Mínimo de 50 convidados.</p>
+                                        <p class="fw-bold"><i class="fas fa-map-marked-alt"></i> Ideal para: Eventos ao ar livre, festivais e confraternizações em grandes espaços.</p>
+                                        <p class="fw-bold"><i class="fas fa-money-bill-wave"></i> Custo: Definido por pessoa (all-inclusive).</p>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Item 2: Estação de Tacos -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseStation" aria-expanded="false" aria-controls="collapseStation">
+                                        <i class="service-icon-acc fas fa-utensils"></i> Estação de Tacos e Buffet
+                                    </button>
+                                </h2>
+                                <div id="collapseStation" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+                                    <div class="accordion-body">
+                                        <p>Serviço de buffet adaptável para ambientes internos ou coberto. Montamos uma mesa de tacos com todos os recheios, molhos e acompanhamentos frescos, supervisionada por um chef.</p>
+                                        <p class="fw-bold"><i class="fas fa-users"></i> Requisito: Mínimo de 30 convidados.</p>
+                                        <p class="fw-bold"><i class="fas fa-clock"></i> Serviço: Duração padrão de 3 horas.</p>
+                                        <p class="fw-bold"><i class="fas fa-building"></i> Ideal para: Festas de aniversário, coquetéis e eventos corporativos em salões.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Item 3: Pratos para Retirada -->
+                            <div class="accordion-item">
+                                <h2 class="accordion-header">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseDropOff" aria-expanded="false" aria-controls="collapseDropOff">
+                                        <i class="service-icon-acc fas fa-box-open"></i> Pedido de Grandes Volumes (Retirada)
+                                    </button>
+                                </div>
+                                <div id="collapseDropOff" class="accordion-collapse collapse" data-bs-parent="#serviceAccordion">
+                                    <div class="accordion-body">
+                                        <p>Para pequenas reuniões, churrascos ou festas em casa. Você pode encomendar grandes volumes (carnes, feijão, arroz mexicano, totopos e molhos) para retirada no nosso Food Truck em horário agendado.</p>
+                                        <p class="fw-bold"><i class="fas fa-users"></i> Requisito: Ideal para até 20 pessoas.</p>
+                                        <p class="fw-bold"><i class="fas fa-shopping-bag"></i> Ideal para: Soluções práticas e econômicas para o anfitrião.</p>
+                                        <p class="fw-bold"><i class="fas fa-tag"></i> Custo: Preço por volume e peso (não por pessoa).</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Seção 2: Planos de Cardápio para Eventos -->
+        <section class="py-5">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 class="h1 fw-bold section-title" style="color: var(--fundo-escuro);">PACOTES SUGERIDOS PARA EVENTOS</h2>
+                    <p class="lead text-muted">Estes são nossos pacotes All-Inclusive *por pessoa*, garantindo comida à vontade durante 3 horas de serviço. Escolha o nível de variedade que melhor atende seu evento.</p>
+                </div>
+                
+                <div class="row g-4 justify-content-center">
+                    
+                    <!-- Plano Básico -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="plan-card">
+                            <div class="plan-header bg-dark">Plano Básico <small class="d-block fw-light pt-1">(Essencial)</small></div>
+                            <div class="plan-content">
+                                <h4 class="fw-bold mb-3" style="color: var(--cor-principal);">Variedade Simples e Clássica</h4>
+                                <ul class="plan-list">
+                                    <li><i class="check-icon fas fa-taco"></i> 2 Tipos de Recheio (Frango e Pastor)</li>
+                                    <li><i class="check-icon fas fa-hot-pepper"></i> 2 Opções de Molho de Pimenta (Suave e Médio)</li>
+                                    <li><i class="check-icon fas fa-lemon"></i> Cilantro, Cebola e Limão à vontade</li>
+                                    <li><i class="check-icon fas fa-cheese"></i> Acompanhamentos: Guacamole e Totopos (Chips)</li>
+                                </ul>
+                            </div>
+                            <div class="plan-price-footer">
+                                <span class="h3 fw-bold" style="color: var(--cor-principal);">R$ 45/pessoa</span>
+                                <p class="mb-0 text-muted">Ideal para eventos com orçamento limitado.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plano Fuego -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="plan-card" style="border: 1px solid var(--cor-principal);">
+                            <div class="plan-header" style="background-color: var(--cor-principal);">Plano EL FUEGO LOCO <small class="d-block fw-light pt-1">(Mais Vendido)</small></div>
+                            <div class="plan-content">
+                                <h4 class="fw-bold mb-3" style="color: var(--cor-principal);">O Cardápio Completo em Tacos</h4>
+                                <ul class="plan-list">
+                                    <li><i class="check-icon fas fa-taco"></i> 4 Tipos de Recheio (3 Carnes + 1 Vegetariano)</li>
+                                    <li><i class="check-icon fas fa-hot-pepper"></i> Molhos: Suave, Médio e Fogo (todos inclusos)</li>
+                                    <li><i class="check-icon fas fa-burrito"></i> Prato Extra: Mini-Burritos de Carne Asada</li>
+                                    <li><i class="check-icon fas fa-cheese"></i> Acompanhamentos: Guacamole, Sour Cream e Pico de Gallo</li>
+                                </ul>
+                            </div>
+                            <div class="plan-price-footer">
+                                <span class="h3 fw-bold" style="color: var(--cor-principal);">R$ 75/pessoa</span>
+                                <p class="mb-0 text-muted">Combinação perfeita de variedade e custo-benefício.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Plano Premium -->
+                    <div class="col-md-6 col-lg-4">
+                        <div class="plan-card">
+                            <div class="plan-header bg-dark">Plano Premium <small class="d-block fw-light pt-1">(VIP Experience)</small></div>
+                            <div class="plan-content">
+                                <h4 class="fw-bold mb-3" style="color: var(--cor-principal);">Experiência Gourmet Total</h4>
+                                <ul class="plan-list">
+                                    <li><i class="check-icon fas fa-taco"></i> Acesso a TODO o Cardápio de Tacos e Pratos principais</li>
+                                    <li><i class="check-icon fas fa-beer-mug-empty"></i> BEBIDAS: Bar de Cervejas Artesanais Locais</li>
+                                    <li><i class="check-icon fas fa-ice-cream"></i> SOBREMESA: Churros frescos com Doce de Leite caseiro</li>
+                                    <li><i class="check-icon fas fa-utensils"></i> Inclui todos os acompanhamentos e extras.</li>
+                                </ul>
+                            </div>
+                            <div class="plan-price-footer">
+                                <span class="h3 fw-bold" style="color: var(--cor-principal);">R$ 110/pessoa</span>
+                                <p class="mb-0 text-muted">A opção mais completa, ideal para eventos de destaque.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="text-center mt-5">
+                    <p class="lead">Interessado? Entre em contato para personalizar seu menu!</p>
+                    <a href="contato.html" class="btn btn-lg rounded-pill" style="background-color: var(--cor-principal); color: var(--texto-claro); font-weight: 700;">
+                        <i class="fas fa-paper-plane me-2"></i> Contate para Orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- Seção 3: depoimentos (CARROSSEL) -->
+        <section class="testimonial-carousel">
+            <div class="container">
+                <h2 class="h1 fw-bold text-center section-title mb-5 text-light">OPINIÃO DE QUEM JÁ CONTRATOU</h2>
+                
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                        <button type="button" data-bs-target="#testimonialCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+
+                    <div class="carousel-inner">
+                        
+                        <!-- Depoimento 1 -->
+                        <div class="carousel-item active">
+                            <div class="testimonial-item">
+                                <p class="testimonial-quote">"O El Fuego Loco foi a melhor escolha para nosso casamento temático! O Food Truck é lindo e o taco de frango desapareceu em minutos. O Chef Miguel é um show à parte. Recomendo demais!"</p>
+                                <p class="testimonial-author">Juliana Sampaio <span>Organizadora de Eventos, Brasília-DF</span></p>
+                            </div>
+                        </div>
+
+                        <!-- Depoimento 2 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-item">
+                                <p class="testimonial-quote">"Contratamos a Estação de Tacos para o evento de fim de ano da empresa. Pontualidade impecável, equipe super simpática e a comida estava absurdamente saborosa e fresca. Voltaremos a contratar!"</p>
+                                <p class="testimonial-author">Fernando Almeida <span>Gerente de RH, Tech Solutions</span></p>
+                            </div>
+                        </div>
+                        
+                        <!-- Depoimento 3 -->
+                        <div class="carousel-item">
+                            <div class="testimonial-item">
+                                <p class="testimonial-quote">"Pedi o serviço de retirada para uma festa de futebol em casa. A quantidade era enorme e o sabor era idêntico ao que servem no Food Truck. Zero estresse e todos amaram o Guacamole."</p>
+                                <p class="testimonial-author">Rafael Costa <span>Cliente Fiel</span></p>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <!-- Controles -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Anterior</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Próximo</span>
+                    </button>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- RODAPÉ (REAPROVEITADO) -->
+    <footer class="footer-custom pt-5 pb-4 mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 mb-4">
+                    <h5 class="mb-3 fw-bold d-flex align-items-center">
+                        <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="filter: none; width: 25px; height: 25px;">
+                            <path d="M50 95 C 60 85, 80 70, 80 40 C 80 15, 60 5, 50 5 C 40 5, 20 15, 20 40 C 20 70, 40 85, 50 95 Z" fill="#E34A3E"/>
+                            <path d="M50 5 L 55 0 L 45 0 Z" fill="#38761D"/>
+                            <rect x="45" y="0" width="10" height="15" fill="#38761D"/>
+                            <path d="M50 20 C 60 30, 70 50, 50 75 C 30 50, 40 30, 50 20 Z" fill="#F5A623" opacity="0.6"/>
+                        </svg>
+                        <span class="ms-2" style="color: var(--texto-claro) !important;">EL FUEGO LOCO</span>
+                    </h5>
+                    <p class="footer-slogan">O Sabor que Incendeia.</p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-uppercase mb-3 fw-bold">CONTATO</h5>
+                    <p class="mb-1">
+                        <i class="fas fa-phone-alt me-2" style="color: var(--cor-principal);"></i> (61) 99999-9999
+                    </p>
+                    <p>
+                        <i class="fas fa-envelope me-2" style="color: var(--cor-principal);"></i> contato@elfuegoloco.com
+                    </p>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <h5 class="text-uppercase mb-3 fw-bold">NAVEGAÇÃO</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html">Início</a></li>
+                        <li><a href="cardapio.html">Cardápio</a></li>
+                        <li><a href="servicos.html">Serviços</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <hr class="mt-4 mb-3" style="border-color: rgba(255, 255, 255, 0.1);">
+            
+            <p class="text-center mb-0 fs-6 footer-copy">
+                &copy; 2025 El Fuego Loco todos os direitos reservados | Design .
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script do Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eE7t9zE52B6qT" crossorigin="anonymous"></script>
+</body>
+</html>
